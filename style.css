@@ -28,16 +28,105 @@
 .hero{
  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
 }
-.slidewala {
-    position: absolute;   /* Normal flow se nikal do */
-    top: 0;               /* Upar chipka do */
-    right: 0;             /* Right corner pe chipka do */
-    background-color: beige;
-    width: 5rem;
-    display: none;
 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-#sidecontent{
+
+/* Base styles - mobile first */
+.slidewala {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 70%;
+    height: 100vh;
+    background: beige;
+    transform: translateX(100%);   /* hidden outside */
+    transition: transform 0.3s ease;
+    z-index: 1000;
+}
+
+.slidewala.show {
+    transform: translateX(0);      /* slide in */
+}
+
+
+#nav{
     color: black;
     text-decoration: none;
+    font-size: large;
+}
+
+.hone{
+    margin-top: 10rem;
+}
+
+#profileid{
+    border-radius: 50%;
+    width: 10rem;
+    height: 10rem;
+}
+
+.pid{
+    margin-top: 5rem;
+}
+
+#heroheading{
+    color: white;
+}
+
+#desc{
+    color: white;
+}
+
+.hero{
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+}
+
+/* Desktop styles */
+@media (max-width:576px) {
+    .slidewala {
+        width: 10rem; /* Desktop ke liye fixed width */
+        transform: translateX(0); /* Reset transform for desktop */
+    }
+    
+    .nvaigation{
+        display: none;
+    }
+
+    .slidewala:not(.show) {
+        display: none; /* Hide when not showing */
+    }
+    
+    #sidecontent{
+        color: black;
+        text-decoration: none;
+    }
+    
+    .menu{
+        width: 100%;
+        background-color: #203a43;
+        color: white;
+    }
+
+ 
+
+}
+
+/* Mobile ke liye (576px tak) */
+@media (max-width: 576px) {
+  #togglebtn {
+    display: block;
+    margin-left: auto;
+  }
+}
+
+/* Tablet aur upar ke liye (min-width: 577px ya 768px) */
+@media (min-width: 577px) {
+  #togglebtn {
+    display: none;
+    
+  }
 }
